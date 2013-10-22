@@ -9,7 +9,7 @@
 #
 
 class Entry < ActiveRecord::Base
-  attr_accessible :user_id
-  has_many :ideas
+  attr_accessible :user_id, :idea_id
   belongs_to :user
+  has_many :ideas
 end
