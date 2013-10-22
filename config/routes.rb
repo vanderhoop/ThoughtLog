@@ -2,6 +2,7 @@ ThoughtLogApp::Application.routes.draw do
   get '/signup' => "users#new"
   get '/login' => 'session#new'
   post '/login' => 'session#create'
+  post '/logout' => 'session#destroy'
 
   resources :users
   # The priority is based upon order of creation:
@@ -61,3 +62,15 @@ ThoughtLogApp::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+#== Route Map
+# Generated on 21 Oct 2013 19:40
+#
+#     login GET    /login(.:format)          session#new
+#           POST   /login(.:format)          session#create
+#     users GET    /users(.:format)          users#index
+#           POST   /users(.:format)          users#create
+#  new_user GET    /users/new(.:format)      users#new
+# edit_user GET    /users/:id/edit(.:format) users#edit
+#      user GET    /users/:id(.:format)      users#show
+#           PUT    /users/:id(.:format)      users#update
+#           DELETE /users/:id(.:format)      users#destroy

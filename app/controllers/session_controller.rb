@@ -1,6 +1,7 @@
 class SessionController < ApplicationController
   def new
   end
+
   def create
     email = params[:email]
     password = params[:password]
@@ -13,4 +14,11 @@ class SessionController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = "You've been signed out, friendo."
+    redirect_to '/login'
+  end
+
 end
