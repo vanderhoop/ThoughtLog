@@ -3,7 +3,7 @@ ThoughtLogApp::Application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   post '/logout' => 'session#destroy'
-  get '/' => 'users#new'
+  get '/' => 'session#new'
 
   get '/users/:id/dashboard' => 'users#dashboard'
 

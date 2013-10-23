@@ -8,8 +8,8 @@ class SessionController < ApplicationController
     @user = User.where(email: email).first
     if @user && @user.authenticate(password)
       session[:user_id] = @user.id
-      # redirect_to("/users/#{user.id}")
-      redirect_to(@user)
+      redirect_to("/users/#{@user.id}/dashboard")
+      #redirect_to(@user/dashboard)
     else
       render :new
     end
