@@ -1,1 +1,20 @@
-shit is getting real. pretty cool, though, how far I've come.
+<!-- I want to show the date the entry was created    -->
+<p><strong>Entry created at:</strong> <%= @entry.created_at %></p>
+
+<!-- I want to loop through the various ideas of an entry and print their text -->
+<% counter=1 %>
+<% @entry_ideas.each do |i| %>
+  <h3>Thought <%= counter %></h3>
+  <%= i.idea_text %>
+  <p><strong>Category:</strong> <%= i.category.capitalize %></p>
+  <% if i.emotional_weight == 3 %>
+    <% emotion = "Pleasant" %>
+  <% elsif i.emotional_weight == 0 %>
+    <% emotion = 'Neutral' %>
+  <% else %>
+    <% emotion = 'Distressing'   %>
+  <% end %>
+  <p><strong>Emotional weight: </strong><%= emotion %></p>
+  <% counter+=1 %>
+<% end %>
+

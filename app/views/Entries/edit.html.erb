@@ -1,0 +1,49 @@
+<%= form_for [@user, @entry] do |f| %>
+  <%= f.hidden_field :user_id, :value => session[:user_id]  %>
+  <label for="idea_1_text">Thought</label></br>
+  <textarea rows="10" cols="80" name = "idea1_text"></textarea></br>
+
+  <!-- inputs for idea1 -->
+  <label for="idea1_category">Category: </label>
+  <select name="idea1_category">
+    <option value="personal">Personal</option>
+    <option value="professional">Professional</option>
+    <option value="societal">Society</option>
+    <option value="other">Other</option>
+  </select> This thought was:
+  <input type="radio" name="idea1_emotional_weight" value=3>Pleasant
+  <input type="radio" name="idea1_emotional_weight" value=0>Neutral
+  <input type="radio" name="idea1_emotional_weight" value=-3>Distressing</br>
+
+
+  <!-- inputs for idea2 -->
+  <label for="idea_2_text">Thought</label></br>
+  <textarea rows="10" cols="80" name = "idea2_text"></textarea></br>
+  <label for="idea2_category">Category: </label>
+  <select name="idea2_category">
+    <option value="personal">Personal</option>
+    <option value="professional">Professional</option>
+    <option value="societal">Society</option>
+    <option value="other">Other</option>
+  </select> This thought was:
+  <input type="radio" name="idea2_emotional_weight" value=3>Pleasant
+  <input type="radio" name="idea2_emotional_weight" value=0>Neutral
+  <input type="radio" name="idea2_emotional_weight" value=-3>Distressing</br>
+
+
+  <!-- inputs for idea3 -->
+  <label for="idea_3_text">Thought</label></br>
+  <textarea rows="10" cols="80" name = "idea3_text"></textarea></br>
+  <label for="idea3_category">Category: </label>
+  <select name="idea3_category">
+    <option value="personal">Personal</option>
+    <option value="professional">Professional</option>
+    <option value="societal">Society</option>
+    <option value="other">Other</option>
+  </select> This thought was:
+  <input type="radio" name="idea3_emotional_weight" value=3>Pleasant
+  <input type="radio" name="idea3_emotional_weight" value=0>Neutral
+  <input type="radio" name="idea3_emotional_weight" value=-3>Distressing</br>
+
+  <%= f.submit %>
+<% end %>

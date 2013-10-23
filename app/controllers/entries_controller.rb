@@ -7,6 +7,14 @@ class EntriesController < ApplicationController
     @entries = Entry.all
   end
 
+  def show
+    Time.zone = 'EST'
+    user = User.find(params[:user_id])
+    @entry_ideas = user.ideas.where(entry_id: params[:id])
+
+    @entry = Entry.find(params[:id])
+  end
+
   def new
     # render entries/new entry form
     @user = User.find(params[:user_id])
@@ -43,13 +51,9 @@ class EntriesController < ApplicationController
     redirect_to :user_entries
   end
 
-  def show
-    @entry = Entry.find(params[:id])
-  end
-
   def edit
-    @entry = Entry.find(params[:id])
-    render :new
+    @user = User.find(params[:user_id])
+    @entry = @user.entries.build
   end
 end
 
