@@ -7,7 +7,7 @@ class IdeasController < ApplicationController
   end
 
   def update
-
+    raise
   end
 
 end

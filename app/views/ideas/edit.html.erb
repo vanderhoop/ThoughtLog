@@ -2,19 +2,14 @@
   <%= f.text_area :idea_text %></br>
   <!--TODO fix form for  -->
   <p>Category:
+
+<% category = @idea.category %>
+
   <select name="category">
-    <% if @idea.category == "personal" %>
-      <option value="personal" <%= 'selected="selected"' %> >Personal</option>
-    <% end %>
-    <% if @idea.category == "professional" %>
-      <option value="professional" <%= 'selected="selected"' %>  >Professional</option>
-    <% end %>
-    <% if @idea.category == "societal" %>
-      <option value="societal" <%= 'selected="selected"' %> >Societal</option>
-    <% end %>
-    <% if @idea.category == "other" %>
-      <option value="other" <%= 'selected="selected"' %> >Other</option>
-    <% end %>
+      <option value="personal" <%= category == "personal" ? "selected" : nil %> >Personal</option>
+      <option value="professional" <%= category == "professional" ? "selected" : nil %> >Professional</option>
+      <option value="societal" <%= category == "societal" ? "selected" : nil %> >Societal</option>
+      <option value="other" <%= category == "other" ? "selected" : nil %> >Other</option>
   </select>
 
   <!-- TODO create conditionals that will set a default radio button if that button matches the value saved in the databases -->
@@ -22,6 +17,5 @@
   <%= f.radio_button :emotional_weight, 3, :checked => false %> Pleasant
   <%= f.radio_button :emotional_weight, 0, :checked => true %> Neutral
   <%= f.radio_button :emotional_weight, -3, :checked => false %> Distressing </br>
-  <%= f.submit 'Update', "/users/:user_id/entries/:entry_id/ideas/:id" %></p>
+  <%= f.submit %></p>
 <% end %>
-
