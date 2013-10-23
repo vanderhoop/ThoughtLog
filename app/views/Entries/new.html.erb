@@ -1,12 +1,7 @@
-This page should have
-  -date of entry with current time
-  -optional meditation timer with sound effect
-  -form that persists an entry and various ideas into the database
-
-
+<h1>Log One Thought or Many</h1>
 <%= form_for [@user, @entry] do |f| %>
   <%= f.hidden_field :user_id, :value => session[:user_id]  %>
-  <label for="idea_1_text">Thought</label></br>
+  <label for="idea_1_text">Thought 1</label></br>
   <textarea rows="10" cols="80" name = "idea1_text"></textarea></br>
 
   <!-- inputs for idea1 -->
@@ -23,7 +18,7 @@ This page should have
 
 
   <!-- inputs for idea2 -->
-  <label for="idea_2_text">Thought</label></br>
+  <label for="idea_2_text">Thought 2</label></br>
   <textarea rows="10" cols="80" name = "idea2_text"></textarea></br>
   <label for="idea2_category">Category: </label>
   <select name="idea2_category">
@@ -38,7 +33,7 @@ This page should have
 
 
   <!-- inputs for idea3 -->
-  <label for="idea_3_text">Thought</label></br>
+  <label for="idea_3_text">Thought 2</label></br>
   <textarea rows="10" cols="80" name = "idea3_text"></textarea></br>
   <label for="idea3_category">Category: </label>
   <select name="idea3_category">
