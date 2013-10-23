@@ -55,6 +55,18 @@ class EntriesController < ApplicationController
     @user = User.find(params[:user_id])
     @entry = @user.entries.build
   end
+
+  def destroy
+
+    @user = User.find(params[:user_id])
+    @entry_ideas = @user.ideas.where(entry_id: params[:id])
+    @entry_ideas.each { |idea| idea.destroy }
+    @entry = Entry.find(params[:id])
+    #I want to destroy all entries associated with this entry.
+    @entry.destroy
+
+    redirect_to "/users/#{params[:user_id]}/entries"
+  end
 end
 
 

@@ -18,3 +18,6 @@
   <% counter+=1 %>
 <% end %>
 
+
+<%= link_to 'Edit Entry', "/users/#{params[:user_id]}/entries/#{params[:id]}/edit" %>
+<%= link_to"Destroy Entry", "/users/#{params[:user_id]}/entries/#{params[:id]}", :method => :delete %>
