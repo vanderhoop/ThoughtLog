@@ -1,9 +1,8 @@
-this page should display all of a user's entries.
-</br>
-
-<% @idea_objects_array.each do |idea_object| %>
-  <% if idea_object[:entry_id] == params[:user_id] %>
-    <%= p idea_object.created_at.to_s %></br>
-    <%= p idea_object.idea_text.to_s %></br></br>
-  <% end %>
+<h1><%= @user_first_name %>'s Entries</h1>
+<!-- list of all entries -->
+<% counter = 1 %>
+<% @user_entries.each do |entry| %>
+  <%= link_to "Entry #{counter}", "/users/#{session[:user_id]}/entries/#{entry.id}" %></br>
+  <p>Created at: <%= entry.created_at %></p>
+<% counter +=1 %>
 <% end %>

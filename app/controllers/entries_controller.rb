@@ -2,9 +2,9 @@ class EntriesController < ApplicationController
   def index
     Time.zone = 'EST'
     #I need to establish the user
-    user = User.find(params[:user_id])
-    @idea_objects_array = user.ideas
-    @entries = Entry.all
+    @user = User.find(params[:user_id])
+    @user_first_name = @user.name.split(' ')[0].capitalize     #Grabs and capitalizes the first name of the user
+    @user_entries = Entry.where(user_id: params[:user_id])
   end
 
   def show

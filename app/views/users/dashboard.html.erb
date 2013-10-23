@@ -10,6 +10,7 @@
     <% counter +=1 %>
   <% end %>
 
-
+</br>
+<%= link_to 'continue to all entries...', "/users/#{session[:user_id]}/entries" %>
 </br>
 <%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new" %>
