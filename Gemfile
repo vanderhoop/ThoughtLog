@@ -6,7 +6,7 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+gem 'skeleton-rails'
 #Gemfile
 group :development, :test do
   gem 'pry-rails'           # Causes rails console to open pry

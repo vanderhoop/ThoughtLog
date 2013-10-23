@@ -15,9 +15,12 @@
     <% emotion = 'Distressing'   %>
   <% end %>
   <p><strong>Emotional weight: </strong><%= emotion %></p>
+  raise
+  <%= link_to 'Edit Thought', "/users/#{session[:user_id]}/entries/#{params[:id]}/ideas/#{i.id}/edit" %>
   <% counter+=1 %>
+
 <% end %>
 
-
+<%= link_to 'edit', edit_user_entry_path %>
 <%= link_to 'Edit Entry', "/users/#{params[:user_id]}/entries/#{params[:id]}/edit" %>
 <%= link_to"Destroy Entry", "/users/#{params[:user_id]}/entries/#{params[:id]}", :method => :delete %>

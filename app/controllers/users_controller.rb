@@ -6,13 +6,6 @@ class UsersController < ApplicationController
     @idea_objects_array = user.ideas            #finds all of a user's ideas
     entries = Entry.where(user_id: session[:user_id])     #grabs all of a users entries
     @most_recent_entries = entries.reverse!     #reverse order so most recent entries appear first in the array
-    #======================================================================
-    #======================================================================
-
-    #TRAVIS! I need to list the timestamps of the user's 5 most recent entries. I could do this by looping through the @entries array.
-
-    #======================================================================
-    #======================================================================
   end
 
   def index
