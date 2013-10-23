@@ -25,7 +25,7 @@ class EntriesController < ApplicationController
   def create
     entry = Entry.new
     entry.user_id = session[:user_id]
-    entry.save                                  #creates Entry with correct user_id
+    entry.save                                  #creates Entry and assigns it to the correct user
 
     idea1 = Idea.new
     idea1.entry_id = entry.id                                   #correctly sets the idea's entry_id
@@ -57,29 +57,15 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-
+    #I want to destroy all entries associated with this entry.
+    #This code works, but I used a 'link_to' in the view, when Stack Overflowers recommend using a 'button_to'
     @user = User.find(params[:user_id])
     @entry_ideas = @user.ideas.where(entry_id: params[:id])
     @entry_ideas.each { |idea| idea.destroy }
     @entry = Entry.find(params[:id])
-    #I want to destroy all entries associated with this entry.
     @entry.destroy
 
     redirect_to "/users/#{params[:user_id]}/entries"
   end
 end
 
-
-
-
-#========================================
-#obsolete comments
-#========================================
-    # @entry = Entry.new(params[:entry])
-    # if @entry.save
-    #   redirect_to(the users/:id/entries/:id page  )
-    # else
-    #   # go to entries/new.html.erb and just display that page.
-    #   # in this action
-    #   render :new
-    # end

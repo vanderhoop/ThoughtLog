@@ -1,5 +1,18 @@
 class UsersController < ApplicationController
   def dashboard
+    Time.zone = 'EST'
+    #I need to establish the user
+    user = User.find(session[:user_id])         #finds user for user's data retrieval
+    @idea_objects_array = user.ideas            #finds all of a user's ideas
+    entries = Entry.where(user_id: params[:id])     #grabs all of a users entries
+    @most_recent_entries = entries.reverse!     #reverse order so most recent entries appear first in the array
+    #======================================================================
+    #======================================================================
+
+    #TRAVIS! I need to list the timestamps of the user's 5 most recent entries. I could do this by looping through the @entries array.
+
+    #======================================================================
+    #======================================================================
   end
 
   def index

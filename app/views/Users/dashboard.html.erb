@@ -1,2 +1,15 @@
-<p>this will be the dashboard for a particular user</p>
+<h1>User Dashboard</h1>
+
+
+<!-- I want to list the 5 most recent user entries, and link to their show pages -->
+<h3>Most Recent Entries</h3>
+<% counter = 0 %>
+  <% @most_recent_entries.each do |entry| %>
+    <%= link_to "Entry Created at #{entry.created_at}", "/users/#{session[:user_id]}/entries/#{entry.id}" %></br>
+
+    <% counter +=1 %>
+  <% end %>
+
+
+</br>
 <%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new" %>

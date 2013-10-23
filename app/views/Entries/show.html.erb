@@ -6,7 +6,7 @@
 <% @entry_ideas.each do |i| %>
   <h3>Thought <%= counter %></h3>
   <%= i.idea_text %>
-  <p><strong>Category:</strong> <%= i.category.capitalize %></p>
+  <p><strong>Category:</strong> <%= i.category.capitalize if i.category != nil %></p>
   <% if i.emotional_weight == 3 %>
     <% emotion = "Pleasant" %>
   <% elsif i.emotional_weight == 0 %>
