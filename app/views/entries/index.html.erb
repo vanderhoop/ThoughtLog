@@ -6,3 +6,4 @@
   <p>Created at: <%= entry.created_at %></p>
 <% counter +=1 %>
 <% end %>
+<%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new" %>

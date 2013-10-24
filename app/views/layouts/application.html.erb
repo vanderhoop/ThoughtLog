@@ -7,9 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
+  <div class="container">
+    <div id="header" class="sixteen columns">
+      <div id="logo" class="two columns">
+        <h1>BuddhaLog</h1>
+      </div>
+      <div class="nav 14 columns offset-by-thirteen">
+        <h1>Green Bay Packers</h1>
+      </div>
+    </div>
+    <%= yield %>
 
-<%= yield %>
-</div>
+    <div id="footer" class="sixteen columns"></div>
+  </div>
 </body>
 </html>
+

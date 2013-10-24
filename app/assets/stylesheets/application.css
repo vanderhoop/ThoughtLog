@@ -17,4 +17,19 @@
 
 body {
   background-image: url('paper_square.jpg');
+  color: rgb(60,60,60);
 }
+
+.container {
+  background: url('transparent_buddha.png') no-repeat center;
+  height: 1000px;
+}
+
+#header, #footer {
+  background-color: rgba(255, 255, 255, .4);
+  height: 75px;
+}
+
+
+
+
