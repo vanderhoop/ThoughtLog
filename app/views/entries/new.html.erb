@@ -1,17 +1,18 @@
 <h1>Log One Thought or Many</h1>
 <%= form_for [@user, @entry] do |f| %>
   <%= f.hidden_field :user_id, :value => session[:user_id]  %>
-  <label for="idea_1_text">Thought 1</label></br>
-  <textarea rows="10" cols="80" name = "idea1_text"></textarea>
 
   <!-- inputs for idea1 -->
-  <label for="idea1_category">Category: </label>
+  <label for="idea_1_text" class="form-label">Thought 1</label></br>
+  <textarea rows="10" cols="80" name = "idea1_text"></textarea>
+  <label  for="idea1_category" class="form-label">Category: </label>
   <select name="idea1_category">
     <option value="personal">Personal</option>
     <option value="professional">Professional</option>
     <option value="societal">Societal</option>
     <option value="other">Other</option>
-  </select> This thought was:
+  </select>
+  <label for="idea1_emotional_weight" class="form-label">This thought was:</label>
   <input type="radio" name="idea1_emotional_weight" value=3>Pleasant
   <input type="radio" name="idea1_emotional_weight" value=0 checked>Neutral
   <input type="radio" name="idea1_emotional_weight" value=-3>Distressing</br>
@@ -19,15 +20,16 @@
 
 
   <!-- inputs for idea2 -->
-  <label for="idea_2_text">Thought 2</label></br>
+  <label for="idea_2_text" class="form-label">Thought 2</label></br>
   <textarea rows="10" cols="80" name = "idea2_text"></textarea>
-  <label for="idea2_category">Category: </label>
+  <label for="idea2_category" class="form-label">Category: </label>
   <select name="idea2_category">
     <option value="personal">Personal</option>
     <option value="professional">Professional</option>
     <option value="societal">Societal</option>
     <option value="other">Other</option>
-  </select> This thought was:
+  </select>
+  <label for="idea2_emotional_weight" class="form-label">This thought was:</label>
   <input type="radio" name="idea2_emotional_weight" value=3>Pleasant
   <input type="radio" name="idea2_emotional_weight" value=0 checked>Neutral
   <input type="radio" name="idea2_emotional_weight" value=-3>Distressing</br>
@@ -43,7 +45,8 @@
     <option value="professional">Professional</option>
     <option value="societal">Societal</option>
     <option value="other">Other</option>
-  </select> This thought was:
+  </select>
+  <label for="idea3_emotional_weight" class="form-label">This thought was:</label>
   <input type="radio" name="idea3_emotional_weight" value=3>Pleasant
   <input type="radio" name="idea3_emotional_weight" value=0 checked>Neutral
   <input type="radio" name="idea3_emotional_weight" value=-3>Distressing</br>
