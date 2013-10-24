@@ -15,7 +15,7 @@
         <h1><a href="/users/<%=session[:user_id]%>/dashboard">buddhaJOURNAL</a></h1>
       </div>
       <div class="nav four columns offset-by-eight">
-        <h1>Green Bay Packers</h1>
+        <h1><%= link_to "Sign out", logout_path %></h1>
       </div>
     </div>
     <%= yield %>
