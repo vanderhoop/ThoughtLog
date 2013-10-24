@@ -21,25 +21,27 @@ class UsersController < ApplicationController
     if professional_emotional_weight != 0
       professional_weight_average = professional_emotional_weight/professional_ideas.size
     end
-
     if professional_weight_average == -3
       @professional_verdict = 'universally distressing'
     end
-
     if professional_weight_average > -3 && professional_weight_average <= -1
       @professional_verdict = 'mostly distressing'
     end
-
     if professional_weight_average > -1 && professional_weight_average < 1
       @professional_verdict = 'approximately neutral'
     end
-
     if professional_weight_average >= 1 && professional_weight_average < 3
       @professional_verdict = 'mostly pleasant'
     end
-
     if professional_weight_average == 3
       @professional_verdict = 'universally pleasant'
+    end
+
+    case @professional_verdict
+    when 'universally distressing'
+      @text_color = "rgb(255,0,0)"
+    when 'universally pleasant'
+      @text_color = "rgb(255,0,0)"
     end
 
     #=======================================================
@@ -104,6 +106,13 @@ class UsersController < ApplicationController
 
     if societal_weight_average == 3
       @societal_verdict = 'universally pleasant'
+    end
+
+    case @societal_verdict
+    when 'universally distressing'
+      @text_color = "rgb(255,0,0)"
+    when 'universally pleasant'
+      @text_color = "rgb(255,0,0)"
     end
 
     #=======================================================
