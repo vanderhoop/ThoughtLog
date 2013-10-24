@@ -1,5 +1,5 @@
 <!-- I want to show the date the entry was created    -->
-<p><strong>Entry created at:</strong> <%= @entry.created_at %></p>
+<p><strong>Entry created about </strong> <%= time_ago_in_words(@entry.created_at) %> ago</p>
 
 <!-- I want to loop through the various ideas of an entry and print their text -->
 <% counter=1 %>

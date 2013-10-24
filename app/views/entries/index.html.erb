@@ -3,7 +3,7 @@
 <% counter = 1 %>
 <% @user_entries.each do |entry| %>
   <%= link_to "Entry #{counter}", "/users/#{session[:user_id]}/entries/#{entry.id}" %></br>
-  <p>Created at: <%= entry.created_at %></p>
+  <p>Created about <%= time_ago_in_words(entry.created_at) %> ago</p>
 <% counter +=1 %>
 <% end %>
-<%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new" %>
+<%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new", class:'button' %>

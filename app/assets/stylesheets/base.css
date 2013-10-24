@@ -52,13 +52,22 @@
 ================================================== */
 
 body {
-  background-image: url('paper_square.jpg');
+/*  background-image: url('paper_square.jpg');*/
   color: rgb(60,60,60);
 
 }
 
-h1 {
+#header {
+	border-bottom: 1px solid rgb(60,60,60);
+}
+
+#logo h1 {
     font-family: 'Allerta', Helvetica, Arial, sans-serif;
+    font-size: 28px;
+}
+
+#contains-yield {
+	margin-top:10px;
 }
 
 h1 a:link {
@@ -68,6 +77,7 @@ h1 a:link {
 
 h1 a:visited {
 	text-decoration: none;
+	color: rgb(60,60,60);
 }
 
 h1 a:hover {
@@ -104,7 +114,8 @@ p {
 
 * #Links
 ================================================== */
-	a, a:visited { color: #333; text-decoration: underline; outline: 0; }
+	/*a, a:visited { color: #333; text-decoration: underline; outline: 0; }*/
+/*	a, a:visited { color: #333; text-decoration: underline; outline: 0; }*/
 	a:hover, a:focus { color: #000; }
 	p a, p a:visited { line-height: inherit; }
 
@@ -149,12 +160,17 @@ p {
 		background: #eee -o-linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* Opera11.10+ */
 		background: #eee -ms-linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* IE10+ */
 		background: #eee linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* W3C */
-	  border: 1px solid #aaa;
-	  border-top: 1px solid #ccc;
-	  border-left: 1px solid #ccc;
-	  -moz-border-radius: 3px;
+/*	  border: 1px solid #aaa;*/
+/*	  border-top: 1px solid #ccc;
+	  border-left: 1px solid #ccc;*/
+/*	  -moz-border-radius: 3px;
 	  -webkit-border-radius: 3px;
-	  border-radius: 3px;
+	  border-radius: 3px;*/
+
+		border: 0;
+    padding: 10px;
+    font-size: 18px;
+
 	  color: #444;
 	  display: inline-block;
 	  font-size: 11px;
@@ -236,7 +252,7 @@ p {
 		border-radius: 2px;
 		font-family: 'Crimson Text', Georgia, Times, serif;
 		font-size: 1em;
-		color: #777;
+/*		color: #777;*/
 		margin: 0;
 		width: 650px;
 		max-width: 70%;
