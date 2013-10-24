@@ -2,7 +2,7 @@
 <%= form_for [@user, @entry] do |f| %>
   <%= f.hidden_field :user_id, :value => session[:user_id]  %>
   <label for="idea_1_text">Thought 1</label></br>
-  <textarea rows="10" cols="80" name = "idea1_text"></textarea></br>
+  <textarea rows="10" cols="80" name = "idea1_text"></textarea>
 
   <!-- inputs for idea1 -->
   <label for="idea1_category">Category: </label>
@@ -19,7 +19,7 @@
 
   <!-- inputs for idea2 -->
   <label for="idea_2_text">Thought 2</label></br>
-  <textarea rows="10" cols="80" name = "idea2_text"></textarea></br>
+  <textarea rows="10" cols="80" name = "idea2_text"></textarea>
   <label for="idea2_category">Category: </label>
   <select name="idea2_category">
     <option value="personal">Personal</option>
@@ -34,7 +34,7 @@
 
   <!-- inputs for idea3 -->
   <label for="idea_3_text">Thought 3</label></br>
-  <textarea rows="10" cols="80" name = "idea3_text"></textarea></br>
+  <textarea rows="10" cols="80" name = "idea3_text"></textarea>
   <label for="idea3_category">Category: </label>
   <select name="idea3_category">
     <option value="personal">Personal</option>

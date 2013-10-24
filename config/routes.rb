@@ -5,7 +5,7 @@ ThoughtLogApp::Application.routes.draw do
   post '/logout' => 'session#destroy'
   get '/' => 'session#new'
   get '/users/:user_id/entries/:entry_id/ideas/:idea_id/edit' => 'ideas#edit'
-  get 'users/:user_id/insights' => 'users#insight'
+  get '/users/:user_id/insights' => 'users#insight'
 
 
   get '/users/:id/dashboard' => 'users#dashboard'
