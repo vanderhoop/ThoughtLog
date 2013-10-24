@@ -1,7 +1,7 @@
 <%= form_for [@user, @entry, @idea] do |f| %>
   <%= f.text_area :idea_text %></br>
   <!--TODO fix form for  -->
-  <p>Category:
+  <p>Category:</p>
 
 <% category = @idea.category %>
 <% weight = @idea.emotional_weight %>
@@ -14,12 +14,12 @@
   </select>
 
   <!-- TODO create conditionals that will set a default radio button if that button matches the value saved in the databases -->
-
+  <p>Emotional Impact:</p>
   <select name="emotional_weight">
       <option value='3' <%= weight == 3 ? "selected" : nil %> >Pleasant</option>
       <option value='0' <%= weight == 0 ? "selected" : nil %> >Neutral</option>
       <option value='-3' <%= weight == -3 ? "selected" : nil %> >Distressing</option>
   </select>
 
-  <%= f.submit %></p>
+  <%= f.submit 'Update thought' %></p>
 <% end %>

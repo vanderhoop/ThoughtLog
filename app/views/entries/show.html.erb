@@ -5,7 +5,7 @@
 <% counter=1 %>
 <% @entry_ideas.each do |i| %>
   <h3>Thought <%= counter %></h3>
-  <%= i.idea_text %>
+  <p><%= i.idea_text %></p>
   <p><strong>Category:</strong> <%= i.category.capitalize if i.category != nil %></p>
   <% if i.emotional_weight == 3 %>
     <% emotion = "Pleasant" %>
@@ -15,10 +15,8 @@
     <% emotion = 'Distressing'   %>
   <% end %>
   <p><strong>Emotional weight: </strong><%= emotion %></p>
-  <%= link_to 'Edit Thought', "/users/#{session[:user_id]}/entries/#{params[:id]}/ideas/#{i.id}/edit" %></br>
+  <%= link_to 'Edit Thought', "/users/#{session[:user_id]}/entries/#{params[:id]}/ideas/#{i.id}/edit", class: 'button' %></br>
+
   <% counter+=1 %>
 
 <% end %>
-
-<%= link_to 'Edit Entry', edit_user_entry_path %>
-<%= link_to "Destroy Entry", "/users/#{params[:user_id]}/entries/#{params[:id]}", :method => :delete %>

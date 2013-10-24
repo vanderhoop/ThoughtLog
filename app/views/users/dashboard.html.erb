@@ -13,4 +13,6 @@
 </br>
 <%= link_to 'continue to all entries...', "/users/#{session[:user_id]}/entries" %>
 </br>
-<%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new" %>
+<%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new", class: 'button' %>
+<%= link_to 'View User Insights', "/users/#{session[:user_id]}/insights", class: 'button' %>
+

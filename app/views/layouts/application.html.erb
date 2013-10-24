@@ -11,16 +11,21 @@
 <body>
   <div class="container">
     <div id="header" class="sixteen columns">
-      <div id="logo" class="three columns">
-        <h1><a href="/users/<%=session[:user_id]%>/dashboard">buddhaJOURNAL</a></h1>
-      </div>
-      <div class="nav four columns offset-by-eight">
-        <h1><%= link_to "Sign out", logout_path %></h1>
+      <div class="row">
+        <div id="logo" class="three columns alpha">
+          <h1><a href="/users/<%=session[:user_id]%>/dashboard">buddhaJOURNAL</a></h1>
+        </div>
+        <div class="nav four columns offset-by-nine omega">
+          <h1 class="logout-link"><%= button_to "Sign out", logout_path,  class: 'button' %></h1>
+        </div>
       </div>
     </div>
-    <%= yield %>
-
-    <div id="footer" class="sixteen columns"></div>
+    <div class="sixteen columns">
+      <%= yield %>
+    </div>
+    <div class="sixteen columns">
+      <div id="footer" class="sixteen columns"></div>
+    </div>
   </div>
 </body>
 </html>
