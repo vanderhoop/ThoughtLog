@@ -21,27 +21,36 @@ class UsersController < ApplicationController
     if professional_emotional_weight != 0
       professional_weight_average = professional_emotional_weight/professional_ideas.size
     end
-    if professional_weight_average == -3
-      @professional_verdict = 'universally distressing'
-    end
-    if professional_weight_average > -3 && professional_weight_average <= -1
-      @professional_verdict = 'mostly distressing'
-    end
-    if professional_weight_average > -1 && professional_weight_average < 1
-      @professional_verdict = 'approximately neutral'
-    end
-    if professional_weight_average >= 1 && professional_weight_average < 3
-      @professional_verdict = 'mostly pleasant'
-    end
-    if professional_weight_average == 3
-      @professional_verdict = 'universally pleasant'
+
+    if professional_weight_average
+      if professional_weight_average == -3
+        @professional_verdict = 'universally distressing'
+      end
+      if professional_weight_average > -3 && professional_weight_average <= -1
+        @professional_verdict = 'mostly distressing'
+      end
+      if professional_weight_average > -1 && professional_weight_average < 1
+        @professional_verdict = 'approximately neutral'
+      end
+      if professional_weight_average >= 1 && professional_weight_average < 3
+        @professional_verdict = 'mostly pleasant'
+      end
+      if professional_weight_average == 3
+        @professional_verdict = 'universally pleasant'
+      end
     end
 
     case @professional_verdict
     when 'universally distressing'
-      @text_color = "rgb(255,0,0)"
+      @professional_text_color = "bright-red"
+    when 'mostly distressing'
+      @professional_text_color = "slightly-red"
     when 'universally pleasant'
-      @text_color = "rgb(255,0,0)"
+      @professional_text_color = "slightly-green"
+    when 'mostly pleasant'
+      @professional_text_color = "bright-green"
+    else
+      @professional_text_color = 'p'
     end
 
     #=======================================================
@@ -49,32 +58,48 @@ class UsersController < ApplicationController
     personal_ideas = user.ideas.where(:category => 'personal')
 
     personal_ideas.each do |personal_idea|
-      personal_emotional_weight += personal_idea.emotional_weight
+      personal_emotional_weight += personal_idea.emotional_weight if personal_idea.emotional_weight
     end
 
     if personal_emotional_weight != 0
       personal_weight_average = personal_emotional_weight/personal_ideas.size
     end
 
-    if personal_weight_average == -3
-      @personal_verdict = 'universally distressing'
+    if personal_weight_average
+      if personal_weight_average == -3
+        @personal_verdict = 'universally distressing'
+      end
+
+      if personal_weight_average > -3 && personal_weight_average <= -1
+        @personal_verdict = 'mostly distressing'
+      end
+
+      if personal_weight_average > -1 && personal_weight_average < 1
+        @personal_verdict = 'approximately neutral'
+      end
+
+      if personal_weight_average >= 1 && personal_weight_average < 3
+        @personal_verdict = 'mostly pleasant'
+      end
+
+      if personal_weight_average == 3
+        @personal_verdict = 'universally pleasant'
+      end
     end
 
-    if personal_weight_average > -3 && personal_weight_average <= -1
-      @personal_verdict = 'mostly distressing'
+    case @personal_verdict
+    when 'universally distressing'
+      @personal_text_color = "bright-red"
+    when 'mostly distressing'
+      @personal_text_color = "slightly-red"
+    when 'universally pleasant'
+      @personal_text_color = "slightly-green"
+    when 'mostly pleasant'
+      @personal_text_color = "bright-green"
+    else
+      @personal_text_color = 'p'
     end
 
-    if personal_weight_average > -1 && personal_weight_average < 1
-      @personal_verdict = 'approximately neutral'
-    end
-
-    if personal_weight_average >= 1 && personal_weight_average < 3
-      @personal_verdict = 'mostly pleasant'
-    end
-
-    if personal_weight_average == 3
-      @personal_verdict = 'universally pleasant'
-    end
 
     #=======================================================
     societal_emotional_weight = 0
@@ -88,31 +113,39 @@ class UsersController < ApplicationController
       societal_weight_average = societal_emotional_weight/societal_ideas.size
     end
 
-    if societal_weight_average == -3
-      @societal_verdict = 'universally distressing'
-    end
+    if societal_weight_average
+      if societal_weight_average == -3
+        @societal_verdict = 'universally distressing'
+      end
 
-    if societal_weight_average > -3 && societal_weight_average <= -1
-      @societal_verdict = 'mostly distressing'
-    end
+      if societal_weight_average > -3 && societal_weight_average <= -1
+        @societal_verdict = 'mostly distressing'
+      end
 
-    if societal_weight_average > -1 && societal_weight_average < 1
-      @societal_verdict = 'approximately neutral'
-    end
+      if societal_weight_average > -1 && societal_weight_average < 1
+        @societal_verdict = 'approximately neutral'
+      end
 
-    if societal_weight_average >= 1 && societal_weight_average < 3
-      @societal_verdict = 'mostly pleasant'
-    end
+      if societal_weight_average >= 1 && societal_weight_average < 3
+        @societal_verdict = 'mostly pleasant'
+      end
 
-    if societal_weight_average == 3
-      @societal_verdict = 'universally pleasant'
+      if societal_weight_average == 3
+        @societal_verdict = 'universally pleasant'
+      end
     end
 
     case @societal_verdict
     when 'universally distressing'
-      @text_color = "rgb(255,0,0)"
+      @societal_text_color = "bright-red"
+    when 'mostly distressing'
+      @societal_text_color = "slightly-red"
     when 'universally pleasant'
-      @text_color = "rgb(255,0,0)"
+      @societal_text_color = "slightly-green"
+    when 'mostly pleasant'
+      @societal_text_color = "bright-green"
+    else
+      @societal_text_color = 'p'
     end
 
     #=======================================================
@@ -127,26 +160,42 @@ class UsersController < ApplicationController
       other_weight_average = other_emotional_weight/other_ideas.size
     end
 
-    if other_weight_average == -3
-      @other_verdict = 'universally distressing'
+    if other_weight_average
+      if other_weight_average == -3
+        @other_verdict = 'universally distressing'
+      end
+
+      if other_weight_average > -3 && other_weight_average <= -1
+        @other_verdict = 'mostly distressing'
+      end
+
+      if other_weight_average > -1 && other_weight_average < 1
+        @other_verdict = 'approximately neutral'
+      end
+
+      if other_weight_average >= 1 && other_weight_average < 3
+        @other_verdict = 'mostly pleasant'
+      end
+
+      if other_weight_average == 3
+        @other_verdict = 'universally pleasant'
+      end
     end
 
-    if other_weight_average > -3 && other_weight_average <= -1
-      @other_verdict = 'mostly distressing'
+    case @other_verdict
+    when 'universally distressing'
+      @other_text_color = "bright-red"
+    when 'mostly distressing'
+      @other_text_color = "slightly-red"
+    when 'universally pleasant'
+      @other_text_color = "slightly-green"
+    when 'mostly pleasant'
+      @other_text_color = "bright-green"
+    else
+      @other_text_color = 'p'
     end
 
-    if other_weight_average > -1 && other_weight_average < 1
-      @other_verdict = 'approximately neutral'
-    end
-
-    if other_weight_average >= 1 && other_weight_average < 3
-      @other_verdict = 'mostly pleasant'
-    end
-
-    if other_weight_average == 3
-      @other_verdict = 'universally pleasant'
-    end
-
+    #=========================================================
   end
 
   def index

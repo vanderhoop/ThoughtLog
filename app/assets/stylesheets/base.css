@@ -86,7 +86,21 @@ p {
     font-family: 'Crimson Text', Georgia, Times, serif;
 }
 
+.bright-red {
+	color:rgb(255,0,0);
+}
 
+.bright-green {
+	color:rgb(36,172,9);
+}
+
+.slightly-red {
+	color:rgb(195,0,0);
+}
+
+.slightly-green {
+	color:rbg(0,129,0);
+}
 
 * #Links
 ================================================== */
