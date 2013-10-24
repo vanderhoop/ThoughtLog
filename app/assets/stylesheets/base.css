@@ -51,3 +51,21 @@
 /* #Basic Styles
 ================================================== */
 
+body {
+  background-image: url('paper_square.jpg');
+  color: rgb(60,60,60);
+
+}
+
+h1 {
+    font-family: 'Allerta', Helvetica, Arial, sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Allerta', sans-serif;
+}
+
+p {
+    font-family: 'Crimson Text', Georgia, Times, serif;
+}
+

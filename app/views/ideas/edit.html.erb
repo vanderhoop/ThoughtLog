@@ -4,6 +4,7 @@
   <p>Category:
 
 <% category = @idea.category %>
+<% weight = @idea.emotional_weight %>
 
   <select name="category">
       <option value="personal" <%= category == "personal" ? "selected" : nil %> >Personal</option>
@@ -13,9 +14,12 @@
   </select>
 
   <!-- TODO create conditionals that will set a default radio button if that button matches the value saved in the databases -->
-  <%= f.label 'Emotional Weight: ' %>
-  <%= f.radio_button :emotional_weight, 3, :checked => false %> Pleasant
-  <%= f.radio_button :emotional_weight, 0, :checked => true %> Neutral
-  <%= f.radio_button :emotional_weight, -3, :checked => false %> Distressing </br>
+
+  <select name="emotional_weight">
+      <option value='3' <%= weight == 3 ? "selected" : nil %> >Pleasant</option>
+      <option value='0' <%= weight == 0 ? "selected" : nil %> >Neutral</option>
+      <option value='-3' <%= weight == -3 ? "selected" : nil %> >Distressing</option>
+  </select>
+
   <%= f.submit %></p>
 <% end %>
