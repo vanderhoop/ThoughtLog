@@ -16,7 +16,8 @@ class EntriesController < ApplicationController
 
   def new
     # render entries/new entry form
-    @prompt = [""]
+    @prompts = ["Think of a time you learned something from or came to an
+agreement with someone you disliked.", "What would it be like to have yourself as a spouse?", "What would you say to your 16-year old self if you couldn't explain who you were?", "If you had no restrictions whatsoever, what 9-to-5 job would you have?", "Would you say routine makes your job better or worse?", "What surprised you about today? It can be anything at all, even a nice hello.", "Think of something you spent weeks anticipating only to be disappointed. How do you feel about that disappointment now?", "If you had to give the sky a new color, what color would you choose? And who does this color remind you of?", "Write about your family. Whatever comes to mind."]
     @user = User.find(params[:user_id])
     @entry = @user.entries.build
   end

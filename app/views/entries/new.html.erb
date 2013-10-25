@@ -1,9 +1,12 @@
+<form>
+  <input type="hidden" name="prompt" value="hi">
+  <button>prompt</button>
+</form>
 <%= form_for [@user, @entry] do |f| %>
   <%= f.hidden_field :user_id, :value => session[:user_id]  %>
-
   <!-- inputs for idea1 -->
   <h3>Thought 1</h3>
-  <textarea rows="10" cols="80" name="idea1_text" class="text-area"></textarea>
+  <textarea rows="10" cols="80" name="idea1_text" class="text-area" placeholder="<%= params['prompt']=='hi' ? 'Completely optional prompt: ' + @prompts.sample : nil %>"></textarea>
   <label  for="idea1_category" class="form-label">Category: </label>
   <select name="idea1_category">
     <option value="personal">Personal</option>
@@ -20,7 +23,7 @@
 
   <!-- inputs for idea2 -->
   <h3>Thought 2</h3>
-  <textarea rows="10" cols="80" name = "idea2_text" class="text-area"></textarea>
+  <textarea rows="10" cols="80" name="idea2_text" class="text-area" placeholder="<%= params['prompt']=='hi' ? 'Completely optional prompt: ' + @prompts.sample : nil %>"></textarea>
   <label for="idea2_category" class="form-label">Category: </label>
   <select name="idea2_category">
     <option value="personal">Personal</option>
@@ -37,7 +40,7 @@
 
   <!-- inputs for idea3 -->
   <h3>Thought 3</h3>
-  <textarea rows="10" cols="80" name = "idea3_text" class="text-area"></textarea>
+  <textarea rows="10" cols="80" name="idea3_text" class="text-area" placeholder="<%= params['prompt']=='hi' ? 'Completely optional prompt: ' + @prompts.sample : nil %>"></textarea>
   <label for="idea3_category">Category: </label>
   <select name="idea3_category">
     <option value="personal">Personal</option>
