@@ -13,8 +13,7 @@
     <% emotion = 'Distressing'   %>
   <% end %>
   <p><strong>Emotional weight: </strong><%= emotion %></p>
-  <p>Text: </p>
-  <p><%= i.idea_text %></p>
+  <p>Text: <%= i.idea_text %></p>
   <%= link_to 'Edit Thought', "/users/#{session[:user_id]}/entries/#{params[:id]}/ideas/#{i.id}/edit", class: 'button' %></br>
 
   <% counter+=1 %>
