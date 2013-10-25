@@ -9,15 +9,14 @@ then when the create action renders new, @user.errors will have errors.
   <% end %>
   </ul>
 <% end %>
-<h1>Sign up to begin journaling with the app that grows to know you.</h1>
+<h2>The journaling tool that grows to know you.</h2>
+</br>
+</br>
+<h3>Signup to get started!</h3>
 <%= form_for(@user) do |f| %>
-  <%= f.label :name %>
   <%= f.text_field :name, placeholder:"Name", id: "loginsignup" %>
-  <%= f.label :email %>
   <%= f.text_field :email, placeholder:"Your email",id: "loginsignup" %>
-  <%= f.label :password %>
   <%= f.password_field :password, placeholder:"New password", id: "loginsignup" %>
-  <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, placeholder:"Re-enter password", id: "loginsignup" %>
   <%= f.submit "Sign Up" %>
 <% end %>
