@@ -14,46 +14,15 @@
  *= require skeleton
  */
 
-body {
-/*  background-image: url('paper_square.jpg');*/
-  color: rgb(60,60,60);
+
+.form-label {
+  font-family: 'Allerta', sans-serif;
 }
 
-.every div {
-  margin-top: 10px;
-  padding-top: 10px;
+.text-area {
+  font-family: 'Crimson Text', Georgia, Times, serif;
+  font-size: 16px;
 }
-
-.container {
-  /*background: url('transparent_buddha.png') no-repeat center;*/
-  height: 1000px;
-  position: relative;
-}
-
-#header, #footer {
-  background-color: rgba(255, 255, 255, .4);
-  height: 75px;
-}
-#header .logout-link {
-  text-align: right;
-}
-
-.logout-link {
-  margin-top: 24px;
-  margin-right:0px;
-}
-
-#footer {
-  background-color: transparent;
-  position:absolute;
-  bottom:0;
-  width:100%;
-}
-
-#logo {
-  margin-top: 30px;
-}
-
 
 
 

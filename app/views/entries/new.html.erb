@@ -1,10 +1,9 @@
-<h1>Log One Thought or Many</h1>
 <%= form_for [@user, @entry] do |f| %>
   <%= f.hidden_field :user_id, :value => session[:user_id]  %>
 
   <!-- inputs for idea1 -->
-  <label for="idea_1_text" class="form-label">Thought 1</label></br>
-  <textarea rows="10" cols="80" name = "idea1_text"></textarea>
+  <h3>Thought 1</h3>
+  <textarea rows="10" cols="80" name="idea1_text" class="text-area"></textarea>
   <label  for="idea1_category" class="form-label">Category: </label>
   <select name="idea1_category">
     <option value="personal">Personal</option>
@@ -20,8 +19,8 @@
 
 
   <!-- inputs for idea2 -->
-  <label for="idea_2_text" class="form-label">Thought 2</label></br>
-  <textarea rows="10" cols="80" name = "idea2_text"></textarea>
+  <h3>Thought 2</h3>
+  <textarea rows="10" cols="80" name = "idea2_text" class="text-area"></textarea>
   <label for="idea2_category" class="form-label">Category: </label>
   <select name="idea2_category">
     <option value="personal">Personal</option>
@@ -37,8 +36,8 @@
 
 
   <!-- inputs for idea3 -->
-  <label for="idea_3_text">Thought 3</label></br>
-  <textarea rows="10" cols="80" name = "idea3_text"></textarea>
+  <h3>Thought 3</h3>
+  <textarea rows="10" cols="80" name = "idea3_text" class="text-area"></textarea>
   <label for="idea3_category">Category: </label>
   <select name="idea3_category">
     <option value="personal">Personal</option>

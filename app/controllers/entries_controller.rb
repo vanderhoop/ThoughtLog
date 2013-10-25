@@ -16,6 +16,7 @@ class EntriesController < ApplicationController
 
   def new
     # render entries/new entry form
+    @prompt = [""]
     @user = User.find(params[:user_id])
     @entry = @user.entries.build
   end

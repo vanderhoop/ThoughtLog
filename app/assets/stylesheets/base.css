@@ -57,13 +57,60 @@ body {
 
 }
 
+.container {
+  /*background: url('transparent_buddha.png') no-repeat center;*/
+  height: 1000px;
+  position: relative;
+}
+
+#loginsignup {
+	max-width:38%;
+}
+
+#header, #footer {
+  background-color: rgba(255, 255, 255, .4);
+  height: 75px;
+}
+
 #header {
 	border-bottom: 1px solid rgb(60,60,60);
 }
 
+#header .logout-link {
+  text-align: right;
+}
+
+#logout {
+  margin-top: 27px;
+  margin-right:0px;
+}
+
+#signup-button {
+	margin-left:10px;
+}
+
+
+#footer {
+  background-color: transparent;
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+
+#logo {
+  margin-top: 30px;
+}
+
+/*=======================================================*/
 #logo h1 {
     font-family: 'Allerta', Helvetica, Arial, sans-serif;
     font-size: 28px;
+}
+
+.headline {
+	font-size:28px;
+
 }
 
 #contains-yield {
@@ -90,6 +137,10 @@ text-decoration:none;
 
 h2, h3, h4, h5, h6 {
   font-family: 'Allerta', sans-serif;
+}
+
+#hello h1 {
+	font-size: 30px;
 }
 
 p {
@@ -178,6 +229,7 @@ p {
 	  text-decoration: none;
 	  text-shadow: 0 1px rgba(255, 255, 255, .75);
 	  cursor: pointer;
+	  margin-top: 20px;
 	  margin-bottom: 20px;
 	  line-height: normal;
 	  padding: 8px 10px;
@@ -239,6 +291,8 @@ p {
 		margin-bottom: 20px; }
 	fieldset {
 		margin-bottom: 20px; }
+
+
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
@@ -250,15 +304,16 @@ p {
 		-moz-border-radius: 2px;
 		-webkit-border-radius: 2px;
 		border-radius: 2px;
-		font-family: 'Crimson Text', Georgia, Times, serif;
-		font-size: 1em;
+/*		font-family: 'Crimson Text', Georgia, Times, serif;*/
+		font-size: .8em;
 /*		color: #777;*/
-		margin: 0;
+		margin-top: 5px;
 		width: 650px;
 		max-width: 70%;
 		display: block;
 		margin-bottom: 20px;
 		background: #fff; }
+
 	select {
 		padding: 0; }
 	input[type="text"]:focus,
