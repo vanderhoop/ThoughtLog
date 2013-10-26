@@ -8,6 +8,7 @@ class IdeasController < ApplicationController
 
   def update
     @idea = Idea.find(params[:id])
+    raise
     if @idea.update_attributes(params[:idea])
       redirect_to "/users/#{session[:user_id]}/entries/#{params[:entry_id]}"
     else

@@ -1,10 +1,11 @@
 class EntriesController < ApplicationController
   def index
-    Time.zone = 'EST'
+    Time.zone = 'EST'               #establishes what ime
     #I need to establish the user
     @user = User.find(params[:user_id])
     @user_first_name = @user.name.split(' ')[0].capitalize     #Grabs and capitalizes the first name of the user
     @user_entries = Entry.where(user_id: params[:user_id])
+    #TRAVIS, with the help of the ApplicationController's get_user method, you should just be able to call @user.entries in the above line
   end
 
   def show
@@ -50,12 +51,12 @@ agreement with someone you disliked.", "What would it be like to have yourself a
 
   def edit
     @user = User.find(params[:user_id])
-    @entry = @user.entries.build
+    @entry = @user.entries.build              #my categorie and :emotional_weight edits aren't persisted in the database. Why is that?
   end
 
   def destroy
     #I want to destroy all entries associated with this entry.
-    #This code works, but I used a 'link_to' in the view, when Stack Overflowers recommend using a 'button_to'
+    #This code works, but I used a 'link_to' in the view, when Stack Overflowers recommend using a 'button_to'. Link_to defaults to a 'GET' method, while button_to defaults to a 'POST' method.
     @user = User.find(params[:user_id])
     @entry_ideas = @user.ideas.where(entry_id: params[:id])
     @entry_ideas.each { |idea| idea.destroy }
