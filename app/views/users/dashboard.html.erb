@@ -1,8 +1,8 @@
 <!-- I want to list the 5 most recent user entries, and link to their show pages -->
-<h3><%= @user_first_name %>'s Most Recent Entries</h3>
+<h3><%= @user_first_name %>'s Most Recent Entries</h3><br>
 <% counter = 0 %>
   <% @most_recent_entries.each do |entry| %>
-    <%= link_to "Entry created #{time_ago_in_words(entry.created_at)} ago", "/users/#{session[:user_id]}/entries/#{entry.id}" %></br>
+    <%= link_to "Entry created #{time_ago_in_words(entry.created_at)} ago", "/users/#{session[:user_id]}/entries/#{entry.id}" %><br>
 
     <% counter +=1 %>
   <% end %>

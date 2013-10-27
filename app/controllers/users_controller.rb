@@ -1,12 +1,7 @@
 class UsersController < ApplicationController
   def dashboard
-    Time.zone = 'EST'
-    #I need to establish the user
-    user = User.find(session[:user_id])         #finds user for user's data retrieval
     @user_first_name = @user.name.split(' ')[0].capitalize
-    @idea_objects_array = user.ideas            #finds all of a user's ideas
-    entries = Entry.where(user_id: session[:user_id])     #grabs all of a users entries
-    @most_recent_entries = entries.reverse!     #reverse order so most recent entries appear first in the array
+    @most_recent_entries = Entry.where(user_id: session[:user_id]).order("created_at DESC").limit(5) #grabs all of a users entries, orders them by their date of creation (in descending order), and limits the returned value to 5 entries.
   end
 
   def insight

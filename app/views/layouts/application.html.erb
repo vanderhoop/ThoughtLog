@@ -15,7 +15,7 @@
         <div id="logo" class="three columns alpha">
           <h1><a href="/users/<%=session[:user_id]%>/dashboard">InsightJournal</a></h1>
         </div>
-        <div class="nav four columns offset-by-nine omega">
+        <div class="nav one column offset-by-twelve omega">
           <% if session[:user_id] != nil %>
             <%= button_to "Sign out", logout_path,  class: 'button', id: 'logout' %>
           <% end %>

@@ -1,15 +1,12 @@
 class EntriesController < ApplicationController
   def index
-    Time.zone = 'EST'               #establishes what ime
-    #I need to establish the user
-    @user = User.find(params[:user_id])
     @user_first_name = @user.name.split(' ')[0].capitalize     #Grabs and capitalizes the first name of the user
-    @user_entries = Entry.where(user_id: params[:user_id])
+    @user_entries = Entry.where(user_id: session[:user_id]).order("created_at DESC") #grabs all of a users entries and orders them by their date of creation (in descending order)
+    # @user_entries = Entry.where(user_id: params[:user_id])
     #TRAVIS, with the help of the ApplicationController's get_user method, you should just be able to call @user.entries in the above line
   end
 
   def show
-    Time.zone = 'EST'
     user = User.find(params[:user_id])
     @entry_ideas = user.ideas.where(entry_id: params[:id])
     @entry = Entry.find(params[:id])

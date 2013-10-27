@@ -1,9 +1,9 @@
-<h3><%= @user_first_name %>'s Entries</h3>
+<h3><%= @user_first_name %>'s Entries</h3><br>
 <!-- list of all entries -->
 <% counter = 1 %>
 <% @user_entries.each do |entry| %>
-  <%= link_to "Entry #{counter}", "/users/#{session[:user_id]}/entries/#{entry.id}" %></br>
-  <p>Created about <%= time_ago_in_words(entry.created_at) %> ago</p>
+  <%= link_to "Entry #{entry.id}", "/users/#{session[:user_id]}/entries/#{entry.id}" %></br>
+  <p>Created about <%= time_ago_in_words(entry.created_at) %> ago</p><br>
 <% counter +=1 %>
 <% end %>
 <%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new", class:'button' %>

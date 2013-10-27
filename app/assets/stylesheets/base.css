@@ -82,7 +82,8 @@ body {
 
 #logout {
   margin-top: 27px;
-  margin-right:0px;
+  position:absolute;
+  right:15px;
 }
 
 #signup-button {
