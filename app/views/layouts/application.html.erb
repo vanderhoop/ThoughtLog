@@ -13,7 +13,14 @@
     <div id="header" class="sixteen columns">
       <div class="row">
         <div id="logo" class="three columns alpha">
-          <h1><a href="/users/<%=session[:user_id]%>/dashboard">InsightJournal</a></h1>
+            <!-- The if/else statement below checks to see if the user is logged in. If the user is not logged in, the logo in the upper left hand corner reloads the login page. If they are logged in, the logo takes them to their dashboard. -->
+            <% if session[:user_id] == nil %>
+              <% url = "/login" %>
+            <% else %>
+              <% url = "/users/#{session[:user_id]}/dashboard" %>
+            <% end %>
+            <h1><a href=<%= url %>>InsightJournal</a></h1>
+
         </div>
         <div class="nav one column offset-by-twelve omega">
           <% if session[:user_id] != nil %>
