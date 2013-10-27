@@ -149,6 +149,10 @@ p {
     font-family: 'Crimson Text', Georgia, Times, serif;
 }
 
+p.preview-text {
+	color:rgb(201,201,201);
+}
+
 .bright-red {
 	color:rgb(255,0,0);
 }

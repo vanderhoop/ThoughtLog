@@ -1,4 +1,4 @@
-<%= form_for [@user, @entry, @idea] do |f| %>
+<%= form_for [@user, @entry, @idea] do |f| %> <!-- with nested resources, you need to specify the resource path. In this case, the idea I'm updating belongs to the entry identified in the params, and the entry belongs to the user identified by the session id.  -->
   <%= f.text_area :idea_text %></br>
   <!--TODO fix form for  -->
   <p>Category:</p>
@@ -6,16 +6,15 @@
 <% category = @idea.category %>
 <% weight = @idea.emotional_weight %>
 
-  <select name="category">
+  <select name="category">  <!-- each option listed has a conditional. if the idea's category is ______, that will be the default selected option. -->
       <option value="personal" <%= category == "personal" ? "selected" : nil %> >Personal</option>
       <option value="professional" <%= category == "professional" ? "selected" : nil %> >Professional</option>
       <option value="societal" <%= category == "societal" ? "selected" : nil %> >Societal</option>
       <option value="other" <%= category == "other" ? "selected" : nil %> >Other</option>
   </select>
 
-  <!-- TODO create conditionals that will set a default radio button if that button matches the value saved in the databases -->
   <p>Emotional Impact:</p>
-  <select name="emotional_weight">
+  <select name="emotional_weight"> <!-- each option listed has a conditional. If the idea's emotional_weight is ________, that will be the default selected option. -->
       <option value='3' <%= weight == 3 ? "selected" : nil %> >Pleasant</option>
       <option value='0' <%= weight == 0 ? "selected" : nil %> >Neutral</option>
       <option value='-3' <%= weight == -3 ? "selected" : nil %> >Distressing</option>

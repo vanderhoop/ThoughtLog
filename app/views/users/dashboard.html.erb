@@ -1,18 +1,18 @@
-<!-- I want to list the 5 most recent user entries, and link to their show pages -->
-  <% if @most_recent_entries == [] %>
-    <h3>Welcome to InsightJournal</h3><br>
-    <p>To begin gleaning insights, create your first entry!</p>
-    <%= link_to 'Create Your First Entry!', "/users/#{session[:user_id]}/entries/new", class: 'button' %>
-  <% else %>
-    <h3><%= @user_first_name %>'s Most Recent Entries</h3><br>
-    <% @most_recent_entries.each do |entry| %>
-      <%= link_to "Entry created #{time_ago_in_words(entry.created_at)} ago", "/users/#{session[:user_id]}/entries/#{entry.id}" %><br>
-    <% end %>
-    </br>
-    <%= link_to 'continue to all entries...', "/users/#{session[:user_id]}/entries" %>
-    </br>
-    <%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new", class: 'button' %>
-    <%= link_to 'View User Insights', "/users/#{session[:user_id]}/insights", class: 'button', id: "signup-button" %>
+<% if @most_recent_entries == [] %>
+  <h3>Welcome to InsightJournal</h3><br>
+  <p>To begin gleaning insights, create your first entry!</p>
+  <%= link_to 'Create Your First Entry!', "/users/#{session[:user_id]}/entries/new", class: 'button' %>
+<% else %>
+  <h3><%= @user_first_name %>'s Most Recent Entries</h3><br>
+  <% @most_recent_entries.each do |entry| %>
+    <%= link_to "Entry created #{time_ago_in_words(entry.created_at)} ago", "/users/#{session[:user_id]}/entries/#{entry.id}" %><br>
+    <p class='preview-text'><%= entry.ideas.first.idea_text.truncate(150) %></p>
   <% end %>
+  </br>
+  <%= link_to 'continue to all entries...', "/users/#{session[:user_id]}/entries" %>
+  </br>
+  <%= link_to 'Create New Entry', "/users/#{session[:user_id]}/entries/new", class: 'button' %>
+  <%= link_to 'View User Insights', "/users/#{session[:user_id]}/insights", class: 'button', id: "signup-button" %>
+<% end %>
 
 

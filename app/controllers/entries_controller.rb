@@ -7,7 +7,7 @@ class EntriesController < ApplicationController
   end
 
   def show
-    @entry_ideas = @user.ideas.where(entry_id: params[:id])
+    @entry_ideas = @user.ideas.where(entry_id: params[:id]).order('created_at ASC') #grabs all ideas of a particular entry and makes sure their order is always by determined by creation date in ascending order.
     @entry = Entry.find(params[:id])
   end
 
