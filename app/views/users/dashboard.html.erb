@@ -5,8 +5,8 @@
 <% else %>
   <h3><%= @user_first_name %>'s Most Recent Entries</h3><br>
   <% @most_recent_entries.each do |entry| %>
-    <%= link_to "Entry created #{time_ago_in_words(entry.created_at)} ago", "/users/#{session[:user_id]}/entries/#{entry.id}" %><br>
-    <p class='preview-text'><%= entry.ideas.first.idea_text.truncate(150) %></p>
+    <p><%="Entry #{entry.id}, created #{time_ago_in_words(entry.created_at)} ago"%></p>
+    <p class='preview-text'><%= entry.ideas.first.idea_text.truncate(150) %> <%= link_to "review entry", "/users/#{session[:user_id]}/entries/#{entry.id}" %></p><br>
   <% end %>
   </br>
   <%= link_to 'continue to all entries...', "/users/#{session[:user_id]}/entries" %>

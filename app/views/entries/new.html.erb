@@ -6,7 +6,7 @@
   <%= f.hidden_field :user_id, :value => session[:user_id]  %>
   <!-- inputs for idea1 -->
   <h3>Thought 1</h3>
-  <textarea rows="10" cols="80" name="idea1_text" class="text-area" placeholder="<%= params['prompt']=='hi' ? 'Completely optional prompt: ' + @prompts.sample : nil %>"></textarea>
+  <textarea rows="10" cols="80" name="idea1_text" class="text-area" placeholder="<%= params['prompt']=='hi' ? 'Completely optional prompt: ' + @prompts.sample : nil %>", required></textarea>
   <label  for="idea1_category" class="form-label">Category: </label>
   <select name="idea1_category">
     <option value="personal">Personal</option>
