@@ -12,18 +12,10 @@ class UsersController < ApplicationController
   def insight
     user = User.find(session[:user_id])
     #=======================================================
-    professional_emotional_weight = 0
-    professional_ideas = user.ideas.where(:category => 'professional')
+    professional_ideas = user.ideas.where(:category => 'professional') #creates an array of all the user's ideas of the 'professional' category. We'll iterate over this in a moment.
+    professional_weight_average = professional_ideas.average('emotional_weight').to_f  #averages the emotional_weight of a user's entries in a particular category.
 
-    professional_ideas.each do |professional_idea|
-      professional_emotional_weight += professional_idea.emotional_weight
-    end
-
-    if professional_emotional_weight != 0
-      professional_weight_average = professional_emotional_weight/professional_ideas.size
-    end
-
-    if professional_weight_average
+    if professional_weight_average                        #depending on the category's average emotional_weight, an insight_value (in this case, @professional_verdict) is assigned
       if professional_weight_average == -3
         @professional_verdict = 'universally distressing'
       end
@@ -41,7 +33,7 @@ class UsersController < ApplicationController
       end
     end
 
-    case @professional_verdict
+    case @professional_verdict                            #depending on the insight_value (in this case, @professional_verdict), we set a @category_text_color instance variable, which will be interpolated into the html as a value for the "class" of an element. Each class can be found in the stylesheet, and renders any element of that class the colors (either red or green, depending on if the thoughts are distressing or plesant, respectively)
     when 'universally distressing'
       @professional_text_color = "bright-red"
     when 'mostly distressing'
@@ -55,16 +47,9 @@ class UsersController < ApplicationController
     end
 
     #=======================================================
-    personal_emotional_weight = 0
     personal_ideas = user.ideas.where(:category => 'personal')
+    personal_weight_average = personal_ideas.average('emotional_weight').to_f
 
-    personal_ideas.each do |personal_idea|
-      personal_emotional_weight += personal_idea.emotional_weight if personal_idea.emotional_weight
-    end
-
-    if personal_emotional_weight != 0
-      personal_weight_average = personal_emotional_weight/personal_ideas.size
-    end
 
     if personal_weight_average
       if personal_weight_average == -3
@@ -103,16 +88,8 @@ class UsersController < ApplicationController
 
 
     #=======================================================
-    societal_emotional_weight = 0
     societal_ideas = user.ideas.where(:category => 'societal')
-
-    societal_ideas.each do |societal_idea|
-      societal_emotional_weight += societal_idea.emotional_weight
-    end
-
-    if societal_emotional_weight != 0
-      societal_weight_average = societal_emotional_weight/societal_ideas.size
-    end
+    societal_weight_average = societal_ideas.average('emotional_weight').to_f
 
     if societal_weight_average
       if societal_weight_average == -3
@@ -150,16 +127,8 @@ class UsersController < ApplicationController
     end
 
     #=======================================================
-    other_emotional_weight = 0
     other_ideas = user.ideas.where(:category => 'other')
-
-    other_ideas.each do |other_idea|
-      other_emotional_weight += other_idea.emotional_weight
-    end
-
-    if other_emotional_weight != 0
-      other_weight_average = other_emotional_weight/other_ideas.size
-    end
+    other_weight_average = other_ideas.average('emotional_weight').to_f
 
     if other_weight_average
       if other_weight_average == -3
